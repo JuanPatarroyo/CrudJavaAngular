@@ -1,0 +1,6 @@
+co\com\domain\Person.class
+co\com\service\PersonServiceRS.class
+co\com\data\PersonDaoImpl.class
+co\com\data\PersonDao.class
+co\com\web\JAXRSActivator.class
+co\com\web\CorsFilter.class

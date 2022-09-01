@@ -20,13 +20,13 @@ import javax.persistence.NamedQuery;
  */
 @Entity
 @NamedQueries({
-    @NamedQuery(name = "Person.findAllPeople", query = "SELECT P FROM persona p ORDER BY p.idPersona")
+    @NamedQuery(name = "Person.findAllPeople", query = "SELECT p FROM Person p ORDER BY p.id")
 })
 public class Person implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_përsona")
+    @Column(name = "id_persona")
     private int id;
     @Column(name = "nombre")
     private String name;
