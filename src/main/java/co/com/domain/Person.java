@@ -30,6 +30,14 @@ public class Person implements Serializable {
     private int id;
     @Column(name = "nombre")
     private String name;
+    @Column(name = "apellido")
+    private String surname;
+    @Column(name = "segundo_apellido")
+    private String lastSurname;
+    private String email;
+    @Column(name = "telefono")
+    private Long phone;
+    
 
     public Person() {
     }
@@ -38,9 +46,13 @@ public class Person implements Serializable {
         this.id = id;
     }
 
-    public Person(int id, String name) {
+    public Person(int id, String name, String surname, String lastSurname, String email, Long phone) {
         this.id = id;
         this.name = name;
+        this.surname = surname;
+        this.lastSurname = lastSurname;
+        this.email = email;
+        this.phone = phone;
     }
 
     public int getId() {
@@ -61,7 +73,7 @@ public class Person implements Serializable {
 
     @Override
     public String toString() {
-        return "Person{" + "id=" + id + ", name=" + name + '}';
+        return "Person{" + "id=" + id + ", name=" + name + ", surname=" + surname + ", lastSurname=" + lastSurname + ", email=" + email + ", phone=" + phone + '}';
     }
 
 }
