@@ -20,9 +20,9 @@ import javax.persistence.NamedQuery;
  */
 @Entity
 @NamedQueries({
-    @NamedQuery(name = "Person.findAllPeople", query = "SELECT p FROM Person p ORDER BY p.id")
+    @NamedQuery(name = "Person.findAllPeople", query = "SELECT p FROM Persona p ORDER BY p.id")
 })
-public class Person implements Serializable {
+public class Persona implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,14 +39,14 @@ public class Person implements Serializable {
     private Long phone;
     
 
-    public Person() {
+    public Persona() {
     }
 
-    public Person(int id) {
+    public Persona(int id) {
         this.id = id;
     }
 
-    public Person(int id, String name, String surname, String lastSurname, String email, Long phone) {
+    public Persona(int id, String name, String surname, String lastSurname, String email, Long phone) {
         this.id = id;
         this.name = name;
         this.surname = surname;

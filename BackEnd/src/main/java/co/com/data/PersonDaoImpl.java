@@ -5,7 +5,7 @@
  */
 package co.com.data;
 
-import co.com.domain.Person;
+import co.com.domain.Persona;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -22,28 +22,28 @@ public class PersonDaoImpl implements PersonDao{
     EntityManager entityManager;
     
     @Override
-    public List<Person> findAllPeople() {
+    public List<Persona> findAllPeople() {
         return entityManager.createNamedQuery("Person.findAllPeople").getResultList();
     }
 
     @Override
-    public Person findPerson(Person person) {
-        return entityManager.find(Person.class, person.getId());
+    public Persona findPerson(Persona person) {
+        return entityManager.find(Persona.class, person.getId());
     }
 
     @Override
-    public void insert(Person person) {
+    public void insert(Persona person) {
         entityManager.persist(person);
         entityManager.flush();
     }
 
     @Override
-    public void update(Person person) {
+    public void update(Persona person) {
         entityManager.merge(person);
     }
 
     @Override
-    public void delete(Person person) {
+    public void delete(Persona person) {
         entityManager.remove(entityManager.merge(person));
     }
     

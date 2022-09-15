@@ -6,7 +6,7 @@
 package co.com.service;
 
 import co.com.data.PersonDao;
-import co.com.domain.Person;
+import co.com.domain.Persona;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -35,8 +35,8 @@ public class PersonServiceRS {
 
     @GET
     @Produces(value = MediaType.APPLICATION_JSON)
-    public List<Person> listPeople() {
-        List<Person> people = personDao.findAllPeople();
+    public List<Persona> listPeople() {
+        List<Persona> people = personDao.findAllPeople();
         System.out.println("people = " + people);
         return people;
     }
@@ -44,8 +44,8 @@ public class PersonServiceRS {
     @GET
     @Produces(value = MediaType.APPLICATION_JSON)
     @Path("{id}")
-    public Person getPerson(@PathParam("id") int id) {
-        Person person = personDao.findPerson(new Person(id));
+    public Persona getPerson(@PathParam("id") int id) {
+        Persona person = personDao.findPerson(new Persona(id));
         System.out.println("person = " + person);
         return person;
     }
@@ -53,9 +53,9 @@ public class PersonServiceRS {
     @POST
     @Consumes(value = MediaType.APPLICATION_JSON)
     @Produces(value = MediaType.APPLICATION_JSON)
-    public Person addPerson(Person person) {
+    public Persona addPerson(Persona person) {
         personDao.insert(person);
-        System.out.println("Person added: " + person);
+        System.out.println("Persona added: " + person);
         return person;
     }
 
@@ -63,11 +63,11 @@ public class PersonServiceRS {
     @Consumes(value = MediaType.APPLICATION_JSON)
     @Produces(value = MediaType.APPLICATION_JSON)
     @Path("{id}")
-    public Response updatePerson(@PathParam("id") int id, Person person) {
-        Person personToModify = personDao.findPerson(person);
+    public Response updatePerson(@PathParam("id") int id, Persona person) {
+        Persona personToModify = personDao.findPerson(person);
         if (personToModify != null) {
             personDao.update(person);
-            System.out.println("Person updated: " + person);
+            System.out.println("Persona updated: " + person);
             return Response.ok().entity(person).build();
         }
         return Response.status(Status.NOT_FOUND).build();
@@ -77,8 +77,8 @@ public class PersonServiceRS {
     @Produces(value = MediaType.APPLICATION_JSON)
     @Path("{id}")
     public Response deletePerson(@PathParam("id") int id){
-        personDao.delete(new Person(id));
-        System.out.println("Person deleted with id: "+id);
+        personDao.delete(new Persona(id));
+        System.out.println("Persona deleted with id: "+id);
         return Response.ok().build();
     }
 }

@@ -5,7 +5,7 @@
  */
 package co.com.data;
 
-import co.com.domain.Person;
+import co.com.domain.Persona;
 import java.util.List;
 
 /**
@@ -14,13 +14,13 @@ import java.util.List;
  */
 public interface PersonDao {
 
-    public List<Person> findAllPeople();
+    public List<Persona> findAllPeople();
 
-    public Person findPerson(Person person);
+    public Persona findPerson(Persona person);
 
-    public void insert(Person person);
+    public void insert(Persona person);
 
-    public void update(Person person);
+    public void update(Persona person);
 
-    public void delete(Person person);
+    public void delete(Persona person);
 }

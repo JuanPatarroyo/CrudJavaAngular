@@ -1,0 +1,14 @@
+<div style="text-align: center;">
+  <button style="cursor: pointer;" (click)="toAdd()">+</button>
+</div>
+
+<div class="box">
+  <div class="item" *ngFor="let person of people">
+    <ul>
+      <li>{{person.id}} {{person.name}}</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Form's component -->
+<router-outlet></router-outlet>
