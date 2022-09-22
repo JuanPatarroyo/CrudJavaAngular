@@ -23,7 +23,7 @@ public class PersonDaoImpl implements PersonDao{
     
     @Override
     public List<Persona> findAllPeople() {
-        return entityManager.createNamedQuery("Person.findAllPeople").getResultList();
+        return entityManager.createNamedQuery("Person.findPeople").getResultList();
     }
 
     @Override

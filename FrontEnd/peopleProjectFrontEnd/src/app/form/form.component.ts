@@ -20,11 +20,29 @@ export class FormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.id = this.route.snapshot.params['id'];
+    if (this.id != null) {
+      const person = this.personService.findPerson(this.id);
+      if (person != null) {
+        this.inputName = person.name;
+      }
+    }
   }
 
   onSavePerson() {
     const personToAdd = new Person(this.id, this.inputName);
-    this.personService.addPerson(personToAdd);
+    if (this.id != null) {
+      this.personService.updatePerson(this.id, personToAdd);
+    } else {
+      this.personService.addPerson(personToAdd);
+    }
+    this.router.navigate(['people']);
+  }
+
+  deletePerson() {
+    if (this.id != null) {
+      this.personService.deletePerson(this.id);
+    }
     this.router.navigate(['people']);
   }
 }

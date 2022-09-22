@@ -39,7 +39,11 @@ export class PersonService {
   }
 
   updatePerson(id: number, person: Person) {
-    console.log("Person to update: " + person.id);
+    const personModified = this.people.find(person => person.id == id);
+    if (personModified != null) {
+      personModified.id = person.id;
+      personModified.name = person.name;
+    }
     this.dataService.updatePerson(id, person);
   }
 

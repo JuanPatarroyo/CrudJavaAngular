@@ -20,7 +20,7 @@ import javax.persistence.NamedQuery;
  */
 @Entity
 @NamedQueries({
-    @NamedQuery(name = "Person.findAllPeople", query = "SELECT p FROM Persona p ORDER BY p.id")
+    @NamedQuery(name = "Person.findPeople", query = "SELECT p FROM Persona p ORDER BY p.id")
 })
 public class Persona implements Serializable {
 

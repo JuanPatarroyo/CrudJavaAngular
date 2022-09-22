@@ -6,7 +6,8 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {path: '', component: PeopleComponent},
   {path: 'people', component: PeopleComponent, children: [
-    {path: 'add', component: FormComponent}
+    {path: 'add', component: FormComponent},
+    {path: ':id', component: FormComponent}
   ]}
 ];
 

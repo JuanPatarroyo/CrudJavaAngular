@@ -2,5 +2,6 @@
   <form #f="ngForm" class="item" (ngSubmit)="f.form.valid && onSavePerson()">
     <input type="text" name="name" placeholder="Type your name" [(ngModel)]="inputName" required/>
     <button type="submit" style="cursor: pointer;">+</button>
+    <button *ngIf="id != null" style="cursor: pointer" type="submit" class="buttonRed" (click)="deletePerson()">-</button>
   </form>
 </div>
