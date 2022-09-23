@@ -1,16 +1,23 @@
-<div style="text-align: center;">
-  <button style="cursor: pointer;" (click)="toAdd()">+</button>
+<div class="container">
+  <div class="row justify-content-end">
+    <div class="col-2">
+      <button type="button" class="btn btn-success bi bi-person-plus" (click)="toAdd()"> New</button>
+    </div>
+  </div>
 </div>
 
-<div class="box">
-  <div class="item" *ngFor="let person of people">
-    <ul>
-      <li>
-        <a [routerLink]="['/people', person.id]">
-          {{person.name}}
-        </a>
-      </li>
-    </ul>
+<div class="container">
+  <div class="row row-cols-auto">
+    <div class="col" *ngFor="let person of people">
+      <div class="card" style="width: 18rem;">
+        <img src="https://cdn.dribbble.com/users/77598/screenshots/16532661/media/e87e4828ec6eb513ca0132a38014cb03.png?compress=1&resize=400x300&vertical=top" class="card-img-top" alt="Imagen">
+        <div class="card-body">
+          <h5 class="card-title">{{person.name}}</h5>
+          <p class="card-text"></p>
+          <a href="#" class="btn btn-primary" [routerLink]="['/people', person.id]">Edit</a>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 

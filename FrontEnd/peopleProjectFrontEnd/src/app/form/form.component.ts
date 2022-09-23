@@ -11,12 +11,18 @@ import { Person } from '../person.model';
 })
 export class FormComponent implements OnInit {
 
-  inputName: string;
   id: number;
+  inputName: string;
+  surname: string;
+  email: string;
+  phone: number;
 
   constructor(private personService: PersonService, private router: Router, private route: ActivatedRoute) {
     this.inputName = '';
     this.id = 0;
+    this.surname = '';
+    this.email = '';
+    this.phone = 0;
   }
 
   ngOnInit(): void {
@@ -30,7 +36,7 @@ export class FormComponent implements OnInit {
   }
 
   onSavePerson() {
-    const personToAdd = new Person(this.id, this.inputName);
+    const personToAdd = new Person(this.id, this.inputName, this.surname, this.email, this.phone);
     if (this.id != null) {
       this.personService.updatePerson(this.id, personToAdd);
     } else {

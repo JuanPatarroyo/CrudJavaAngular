@@ -1,7 +1,15 @@
-<div class="box">
+<div class="container text-center">
   <form #f="ngForm" class="item" (ngSubmit)="f.form.valid && onSavePerson()">
-    <input type="text" name="name" placeholder="Type your name" [(ngModel)]="inputName" required/>
-    <button type="submit" style="cursor: pointer;">+</button>
-    <button *ngIf="id != null" style="cursor: pointer" type="submit" class="buttonRed" (click)="deletePerson()">-</button>
+    <input type="text" name="name" placeholder="Type your name" [(ngModel)]="inputName" required />
+    <input type="text" name="surname" placeholder="Type your surname" [(ngModel)]="surname" required />
+    <input type="text" name="email" placeholder="Type your email" [(ngModel)]="email" required />
+    <input type="text" name="phone" placeholder="Type your phone" [(ngModel)]="phone" required />
+    <button type="submit" style="cursor: pointer;">
+
+    </button>
+    <button type="button" class="btn btn-primary">Primary</button>
+
+    <button *ngIf="id != null" style="cursor: pointer" type="submit" class="buttonRed"
+      (click)="deletePerson()">-</button>
   </form>
 </div>
