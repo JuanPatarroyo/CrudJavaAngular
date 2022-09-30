@@ -12,6 +12,7 @@ import { PeopleComponent } from './people/people.component';
 import { FormComponent } from './form/form.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatNativeDateModule} from '@angular/material/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import {MatNativeDateModule} from '@angular/material/core';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    NgbModule
   ],
   providers: [PersonService, DataService],
   bootstrap: [AppComponent],

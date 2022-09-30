@@ -1,15 +1,43 @@
 <div class="container text-center">
-  <form #f="ngForm" class="item" (ngSubmit)="f.form.valid && onSavePerson()">
-    <input type="text" name="name" placeholder="Type your name" [(ngModel)]="inputName" required />
-    <input type="text" name="surname" placeholder="Type your surname" [(ngModel)]="surname" required />
-    <input type="text" name="email" placeholder="Type your email" [(ngModel)]="email" required />
-    <input type="text" name="phone" placeholder="Type your phone" [(ngModel)]="phone" required />
-    <button type="submit" style="cursor: pointer;">
 
-    </button>
-    <button type="button" class="btn btn-primary">Primary</button>
+  <ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">{{actionSelected}} Person</h4>
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="mb-3">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" name="name" placeholder="Type your name" [(ngModel)]="inputName" required />
+        </div>
+        <div class="mb-3">
+          <label for="surname" class="form-label">Surname</label>
+          <input type="text" class="form-control" name="surname" placeholder="Type your surname" [(ngModel)]="surname"
+            required />
+        </div>
+        <div class="mb-3">
+          <label for="lastSurname">Last surname</label>
+          <input type="text" class="form-control" name="lastSurname" placeholder="Type your last surname"
+            [(ngModel)]="lastSurname" required />
+        </div>
+        <div class="mb-3">
+          <label for="email">Email</label>
+          <input type="text" class="form-control" name="email" placeholder="Type your email" [(ngModel)]="email"
+            required />
+        </div>
+        <div class="mb-3">
+          <label for="phone">Phone</label>
+          <input type="text" class="form-control" name="phone" placeholder="Type your phone" [(ngModel)]="phone"
+            required />
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div>
+  </ng-template>
 
-    <button *ngIf="id != null" style="cursor: pointer" type="submit" class="buttonRed"
-      (click)="deletePerson()">-</button>
-  </form>
+  <button [ngClass]="this.person?.id == null ? 'btn-success bi-person-plus' : 'btn-warning bi-pencil'" class="btn bi"
+    (click)="open(content)"></button>
 </div>

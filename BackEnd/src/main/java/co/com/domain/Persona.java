@@ -71,6 +71,38 @@ public class Persona implements Serializable {
         this.name = name;
     }
 
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getLastSurname() {
+        return lastSurname;
+    }
+
+    public void setLastSurname(String lastSurname) {
+        this.lastSurname = lastSurname;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Long getPhone() {
+        return phone;
+    }
+
+    public void setPhone(Long phone) {
+        this.phone = phone;
+    }
+
     @Override
     public String toString() {
         return "Person{" + "id=" + id + ", name=" + name + ", surname=" + surname + ", lastSurname=" + lastSurname + ", email=" + email + ", phone=" + phone + '}';

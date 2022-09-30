@@ -2,6 +2,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { PersonService } from './../person-service';
 import { Component, OnInit } from '@angular/core';
 import { Person } from '../person.model';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { Input } from '@angular/core';
 
 @Component({
   selector: 'app-form',
@@ -11,32 +13,34 @@ import { Person } from '../person.model';
 })
 export class FormComponent implements OnInit {
 
-  id: number;
-  inputName: string;
-  surname: string;
-  email: string;
-  phone: number;
+  @Input() person: Person|null = new Input();
 
-  constructor(private personService: PersonService, private router: Router, private route: ActivatedRoute) {
-    this.inputName = '';
-    this.id = 0;
-    this.surname = '';
-    this.email = '';
-    this.phone = 0;
+  id: number = 0;
+  inputName: string = '';
+  surname: string = '';
+  lastSurname: string = '';
+  email: string = '';
+  phone: number = 0;
+  actionSelected: string = 'New';
+
+  constructor(private personService: PersonService, private router: Router,
+    private route: ActivatedRoute, private modalService: NgbModal) {
   }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.params['id'];
-    if (this.id != null) {
-      const person = this.personService.findPerson(this.id);
-      if (person != null) {
-        this.inputName = person.name;
-      }
+    this.actionSelected = this.person?.id == null ? 'New' : 'Edit';
+    if (this.person != null) {
+      this.inputName = this.person.name;
+      this.id = this.person.id;
+      this.surname = this.person.surname;
+      this.lastSurname = this.person.lastSurname;
+      this.email = this.person.email;
+      this.phone = this.person.phone;
     }
   }
 
   onSavePerson() {
-    const personToAdd = new Person(this.id, this.inputName, this.surname, this.email, this.phone);
+    const personToAdd = new Person(this.id, this.inputName, this.surname, this.lastSurname, this.email, this.phone);
     if (this.id != null) {
       this.personService.updatePerson(this.id, personToAdd);
     } else {
@@ -50,5 +54,20 @@ export class FormComponent implements OnInit {
       this.personService.deletePerson(this.id);
     }
     this.router.navigate(['people']);
+  }
+
+  open(content: any) {
+    console.log("Person found: ", this.person);
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
   }
 }

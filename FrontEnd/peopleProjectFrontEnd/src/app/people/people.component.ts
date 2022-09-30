@@ -22,7 +22,7 @@ export class PeopleComponent implements OnInit {
         next: (peopleList: Person[]) => {
           this.people = peopleList;
           this.personService.setPeople(this.people);
-          console.log("people: " + this.people);
+          console.log("people: ", this.people);
         },
         error: (error) => {
           console.log("error");

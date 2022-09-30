@@ -1,25 +1,42 @@
 <div class="container">
-  <div class="row justify-content-end">
+  <div class="row d-flex">
+    <!-- <button type="button" class="btn btn-success bi bi-person-plus" (click)="toAdd()"> New</button> -->
+    <div class="col-10">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+    </div>
     <div class="col-2">
-      <button type="button" class="btn btn-success bi bi-person-plus" (click)="toAdd()"> New</button>
+      <app-form></app-form>
     </div>
   </div>
 </div>
 
-<div class="container">
+<div class="container mt-4">
   <div class="row row-cols-auto">
     <div class="col" *ngFor="let person of people">
       <div class="card" style="width: 18rem;">
-        <img src="https://cdn.dribbble.com/users/77598/screenshots/16532661/media/e87e4828ec6eb513ca0132a38014cb03.png?compress=1&resize=400x300&vertical=top" class="card-img-top" alt="Imagen">
+        <img
+          src="https://cdn.dribbble.com/users/77598/screenshots/16532661/media/e87e4828ec6eb513ca0132a38014cb03.png?compress=1&resize=400x300&vertical=top"
+          class="card-img-top" alt="Imagen">
         <div class="card-body">
           <h5 class="card-title">{{person.name}}</h5>
-          <p class="card-text"></p>
-          <a href="#" class="btn btn-primary" [routerLink]="['/people', person.id]">Edit</a>
+          <p class="card-text">
+            <b>Name:</b> {{person.name}}
+          </p>
+          <p class="card-text">
+            <b>Surname:</b> {{person.surname}}
+          </p>
+          <p class="card-text">
+            <b>Surname:</b> {{person.surname}}
+          </p>
+          <p class="card-text">
+            <b>Phone:</b> {{person.phone}}
+          </p>
+          <p class="card-text">
+            <b>Email:</b> {{person.email}}
+          </p>
+          <app-form [person]="person"></app-form>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-<!-- Form's component -->
-<router-outlet></router-outlet>
