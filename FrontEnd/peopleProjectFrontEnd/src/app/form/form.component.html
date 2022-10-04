@@ -9,7 +9,8 @@
       <form>
         <div class="mb-3">
           <label for="name">Name</label>
-          <input type="text" class="form-control" name="name" placeholder="Type your name" [(ngModel)]="inputName" required />
+          <input type="text" class="form-control" name="name" placeholder="Type your name" [(ngModel)]="inputName"
+            required />
         </div>
         <div class="mb-3">
           <label for="surname" class="form-label">Surname</label>
@@ -34,10 +35,13 @@
       </form>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+      <button type="button" class="btn btn-outline-dark" (click)="onSavePerson()">Save</button>
     </div>
   </ng-template>
 
   <button [ngClass]="this.person?.id == null ? 'btn-success bi-person-plus' : 'btn-warning bi-pencil'" class="btn bi"
-    (click)="open(content)"></button>
+    (click)="open(content)" style="margin-right: 5%;"></button>
+
+  <button class="btn btn-danger bi-trash" *ngIf="this.person?.id != null"
+    (click)="deletePerson()" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Tooltip on top"></button>
 </div>

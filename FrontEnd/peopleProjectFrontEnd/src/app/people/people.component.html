@@ -1,10 +1,7 @@
 <div class="container">
-  <div class="row d-flex">
+  <div class="row ">
     <!-- <button type="button" class="btn btn-success bi bi-person-plus" (click)="toAdd()"> New</button> -->
-    <div class="col-10">
-      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-    </div>
-    <div class="col-2">
+    <div class="col-1">
       <app-form></app-form>
     </div>
   </div>
@@ -14,8 +11,7 @@
   <div class="row row-cols-auto">
     <div class="col" *ngFor="let person of people">
       <div class="card" style="width: 18rem;">
-        <img
-          src="https://cdn.dribbble.com/users/77598/screenshots/16532661/media/e87e4828ec6eb513ca0132a38014cb03.png?compress=1&resize=400x300&vertical=top"
+        <img src="https://cdn.dribbble.com/users/77598/screenshots/16532661/media/e87e4828ec6eb513ca0132a38014cb03.png?compress=1&resize=400x300&vertical=top"
           class="card-img-top" alt="Imagen">
         <div class="card-body">
           <h5 class="card-title">{{person.name}}</h5>
@@ -26,7 +22,7 @@
             <b>Surname:</b> {{person.surname}}
           </p>
           <p class="card-text">
-            <b>Surname:</b> {{person.surname}}
+            <b>Last S.:</b> {{person.lastSurname}}
           </p>
           <p class="card-text">
             <b>Phone:</b> {{person.phone}}

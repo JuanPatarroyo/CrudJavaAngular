@@ -14,18 +14,12 @@ export class PersonService {
   }
 
   addPerson(person: Person) {
-    console.log("person to add: " + person.name);
     this.dataService.addPerson(person)
       .subscribe({
         next: (person: Person) => {
-          console.log("Person added is: " + person.id);
           this.people.push(person);
-        },
-        complete() {
-          console.log("prueba");
-        },
-      }
-      );
+        }
+      });
   }
 
   findPeople() {
@@ -43,6 +37,10 @@ export class PersonService {
     if (personModified != null) {
       personModified.id = person.id;
       personModified.name = person.name;
+      personModified.lastSurname = person.lastSurname;
+      personModified.surname = person.surname;
+      personModified.email = person.email;
+      personModified.phone = person.phone;
     }
     this.dataService.updatePerson(id, person);
   }

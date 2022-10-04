@@ -13,7 +13,7 @@ import { Input } from '@angular/core';
 })
 export class FormComponent implements OnInit {
 
-  @Input() person: Person|null = new Input();
+  @Input() person: Person | null = new Input();
 
   id: number = 0;
   inputName: string = '';
@@ -37,21 +37,23 @@ export class FormComponent implements OnInit {
       this.email = this.person.email;
       this.phone = this.person.phone;
     }
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
   }
 
   onSavePerson() {
     const personToAdd = new Person(this.id, this.inputName, this.surname, this.lastSurname, this.email, this.phone);
-    if (this.id != null) {
+    if (this.person?.id != null) {
       this.personService.updatePerson(this.id, personToAdd);
     } else {
       this.personService.addPerson(personToAdd);
     }
     this.router.navigate(['people']);
+    this.modalService.dismissAll();
   }
 
   deletePerson() {
-    if (this.id != null) {
-      this.personService.deletePerson(this.id);
+    if (this.person?.id != null) {
+      this.personService.deletePerson(this.person.id);
     }
     this.router.navigate(['people']);
   }
