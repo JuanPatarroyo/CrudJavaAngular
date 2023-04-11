@@ -14,11 +14,11 @@ I use Java EE webservice and Angular to do a CRUD. This application implements a
 ## Preview 📸
 
 ### Main View
-![Main View](https://github.com/JuanPatarroyo/Crud-Struts2-Hibernate/blob/main/img/Preview_1.png?raw=true)
+![Main View](https://github.com/JuanPatarroyo/CrudJavaAngular/blob/main/img/Preview_1.png?raw=true)
 ### Insert new row
-![Main View](https://github.com/JuanPatarroyo/Crud-Struts2-Hibernate/blob/main/img/Preview_2.png?raw=true)
+![Main View](https://github.com/JuanPatarroyo/CrudJavaAngular/blob/main/img/Preview_2.png?raw=true)
 ### Update/Delete row
-![Main View](https://github.com/JuanPatarroyo/Crud-Struts2-Hibernate/blob/main/img/Preview_3.png?raw=true)
+![Main View](https://github.com/JuanPatarroyo/CrudJavaAngular/blob/main/img/Preview_3.png?raw=true)
 
 ## Requirements 💻
 
